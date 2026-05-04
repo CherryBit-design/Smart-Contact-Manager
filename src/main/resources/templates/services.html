@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Service Page</title>
 </head>
 <body>
-    <h1>This is service page</h1>
-    <hr>
-     <!-- using fragment -->
-     <div class="host-tag" th:replace="~{base :: parent(~{::#second_content})}">
-        <section id="main_content">
-            <h1>Hello world !!!!!</h1>
-        </section>
-         <section id="second_content">
-            <h1>Hello world two!!!!!</h1>
-        </section>
-     
+    <section id="content">
+        <h1>Welcome to services page</h1>
+        <h2>services offered by scm</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore 
+            suscipit minima enim doloremque alias, ducimus soluta placeat 
+            ullam corporis sunt?</p>
+    </section>
+    <script>
+        console.log("services page");
+    </script>
 </body>
 </html>
