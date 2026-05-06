@@ -36,13 +36,15 @@ public class PageController {
     //contact
     @RequestMapping("/contact")
     public String contact(){
-        return new String("contact");
+        //return new String("contact");
+        return "contact";
     }
 
     // login page
     @GetMapping("/login")
     public String login() {
-        return new String("login");
+        //return new String("login");
+        return "login";
     }
 
     // register

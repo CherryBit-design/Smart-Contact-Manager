@@ -26,6 +26,7 @@
     --spacing: 0.25rem;
     --breakpoint-xl: 80rem;
     --container-sm: 24rem;
+    --container-7xl: 80rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-xl: 1.25rem;
@@ -274,6 +275,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
   }
   .max-w-screen-xl {
     max-width: var(--breakpoint-xl);
