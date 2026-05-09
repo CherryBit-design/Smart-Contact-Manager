@@ -5,8 +5,71 @@
 </head>
 <body>
     <div id="content">
-        <h1>Welcome to signup page</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, eum.</p>
+        <div class="grid grid-cols-12 min-h-screen place-items-center">
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4 w-full max-w-md"></div>
+            <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 w-full max-w-xl mx-auto">
+
+                <!-- card -->
+    <div class="block p-6 border-t-8 border-blue-700 bg-blue-50 rounded-xl shadow hover:bg-gray-100 dark">
+        <!-- message here -->
+         <div data-th-replace="message::messagebox"></div>
+    <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">Signup here</h5>
+    <p class="font-normal text-gray-900 dark:text-gray-400 mb-4">Start managing contacts on cloud......</p>
+
+            <!-- form -->
+            <!-- name -->
+    <form data-th-action="@{'/do-register'}" method="post"
+            data-th-object="${userForm}" class="mb-5">
+
+         <div class="mb-3">
+
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Name</label>
+    <input type="text" id="name" data-th-field="*{name}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Enter here" required />
+  </div>
+
+            <!-- email -->
+        <div class="mb-3">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Email</label>
+    <input type="text" id="name" data-th-field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@gmail.com" required />
+  </div>
+
+
+           <!-- new password -->
+  <div class="mb-3">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">New Password</label>
+    <input type="password" id="password" data-th-field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" required />
+  </div>
+
+            <!-- Phone field -->
+  <div class="mb-3">
+    <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Phone Number</label>
+    <input type="text" id="phone" data-th-field="*{phoneNumber}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" required />
+  </div>
+
+            <!-- about textarea -->
+        <div class="mb-3">
+<label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">About You</label>
+<textarea id="about" rows="6" data-th-field="*{about}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Write here..."></textarea>
+    </div>
+
+
+            <!-- button -->
+    <div class="mb-3 flex justify-center space-x-3">
+        <button type="submit" class="px-3 py-2 rounded bg-gray-600 hover:bg-gray-700 text-white">
+            sign up
+        </button>
+
+        <button type="reset" class="px-3 py-2 rounded bg-orange-600 hover:bg-orange-700 text-white">
+            reset
+        </button>
+    </div>
+    </form>
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
     <script>
         console.log("signup page");
