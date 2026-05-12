@@ -19,18 +19,28 @@
             <!-- form -->
             <!-- name -->
     <form data-th-action="@{'/do-register'}" method="post"
-            data-th-object="${userForm}" class="mb-5">
+            data-th-object="${userForm}" class="mb-5" novalidate>
 
          <div class="mb-3">
 
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Name</label>
     <input type="text" id="name" data-th-field="*{name}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Enter here" required />
+    <p 
+    data-th-if="${#fields.hasErrors('name')}"
+    data-th-errors="*{name}"
+    class="text-red-600 py-2 ">Name is Required</p>
+
   </div>
 
             <!-- email -->
         <div class="mb-3">
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Email</label>
     <input type="text" id="name" data-th-field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@gmail.com" required />
+    <p 
+    data-th-if="${#fields.hasErrors('email')}"
+    data-th-errors="*{email}"
+    class="text-red-600 py-2 "></p>
+
   </div>
 
 
@@ -38,18 +48,33 @@
   <div class="mb-3">
     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">New Password</label>
     <input type="password" id="password" data-th-field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" required />
+    <p 
+    data-th-if="${#fields.hasErrors('password')}"
+    data-th-errors="*{password}"
+    class="text-red-600 py-2 "></p>
+
   </div>
 
             <!-- Phone field -->
   <div class="mb-3">
     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Phone Number</label>
     <input type="text" id="phone" data-th-field="*{phoneNumber}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" required />
+    <p 
+    data-th-if="${#fields.hasErrors('phoneNumber')}"
+    data-th-errors="*{phoneNumber}"
+    class="text-red-600 py-2 "></p>
+
   </div>
 
             <!-- about textarea -->
         <div class="mb-3">
 <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">About You</label>
 <textarea id="about" rows="6" data-th-field="*{about}" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Write here..."></textarea>
+<p 
+    data-th-if="${#fields.hasErrors('about')}"
+    data-th-errors="*{about}"
+    class="text-red-600 py-2 "></p>
+
     </div>
 
 

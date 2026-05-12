@@ -3,10 +3,12 @@ package com.scm.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scm.entities.User;
 import com.scm.forms.UserForm;
@@ -15,6 +17,8 @@ import com.scm.helpers.MessageType;
 import com.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
 
 
 @Controller
@@ -22,6 +26,12 @@ public class PageController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/home";
+    }
+    
     
     @RequestMapping("/home")
     public String home(Model model){
@@ -61,6 +71,16 @@ public class PageController {
         //return new String("login");
         return "login";
     }
+    @GetMapping("/user/dashboard")
+      public String userDashboard() {
+        return "user/dashboard";
+    }
+
+
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
 
     // register
     @GetMapping("/register")
@@ -75,12 +95,15 @@ public class PageController {
     
     //processing register
     @RequestMapping(value="/do-register", method=RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session){
+    public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult, HttpSession session){
         System.out.println("Processing registration");
         //fetch form data
         //UserForm
         System.out.println(userForm);
         //validate form data
+        if(rBindingResult.hasErrors()){
+            return "register";
+        }
         //save to database
 
         //userservice

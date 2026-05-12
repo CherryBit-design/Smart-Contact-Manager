@@ -5,8 +5,59 @@
 </head>
 <body>
     <div id="content">
-        <h1>Welcome to login page</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, eum.</p>
+        <div class="grid grid-cols-12 min-h-screen place-items-center">
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4 w-full max-w-md"></div>
+            <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 w-full max-w-xl mx-auto">
+
+                <!-- card -->
+    <div class="block p-6 border-t-8 border-green-700 bg-blue-50 rounded-xl shadow hover:bg-gray-100 dark">
+        <!-- message here -->
+         <div data-th-replace="message::messagebox"></div>
+    <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">Login here</h5>
+    <p class="font-normal text-gray-900 dark:text-gray-400 mb-4">Start managing contacts on cloud......</p>
+
+    <div class="text-red-600 text-center my-3" th:if="${param.error}">
+        Invalid username and password
+    </div>
+    <div class="text-green-600 text-center my-3" th:if="${param.logout}">
+        You have been logged out
+    </div>
+            <!-- form -->
+            <!-- name -->
+    <form 
+    method="post"
+    data-th-action="@{'/authenticate'}"
+    class="mb-5">
+
+            <!-- email -->
+        <div class="mb-3">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Email</label>
+    <input name="email" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@gmail.com" required />
+
+  </div>
+
+
+           <!-- new password -->
+  <div class="mb-3">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">New Password</label>
+    <input name="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" required />
+    
+  </div>
+  <!-- button -->
+    <div class="mb-3 flex justify-center space-x-3">
+        <button type="submit" class="px-3 py-2 rounded bg-gray-600 hover:bg-gray-700 text-white">
+            Login
+        </button>
+
+        <button type="reset" class="px-3 py-2 rounded bg-orange-600 hover:bg-orange-700 text-white">
+            reset
+        </button>
+    </div>
+    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
     <script>
         console.log("login page");
